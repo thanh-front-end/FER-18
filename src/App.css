@@ -91,7 +91,7 @@ p {
   outline: none;
   border: none;
   cursor: pointer;
-  opacity: .8;
+  opacity: .9;
   transition: all .2s linear;
 }
 
@@ -99,7 +99,12 @@ p {
   opacity: 1;
 }
 
-
+/* .col-left{
+  padding: 3%;
+} */
+/* .col-left .result-wrapper{
+  width: 70%;
+} */
 /* booking */
 .booking {
   background-image: url('./img/World\ Map.jpg');
@@ -181,7 +186,7 @@ h2 {
   cursor: pointer;
   padding: 12px 20px;
   border-radius: 4px;
-  opacity: .8;
+  opacity: .9;
   transition: opacity .2s linear;
 }
 
@@ -884,7 +889,7 @@ h6 {
   background-color: white !important;
   border: 1px solid #00000047;
   border-radius: 4px;
-  padding: 5%;
+  padding: 2%;
 }
 
 .cart .departure-flight:hover {
@@ -902,6 +907,10 @@ h6 {
   font-size: 16px;
   color: black;
   line-height: 22px;
+}
+.result-wrapper .pover button {
+  padding: 0px 5px;
+  border-radius: 4px;
 }
 
 
@@ -1082,6 +1091,10 @@ h6 {
   background-color: unset;
 }
 
+.input-group{
+  display: block;
+}
+
 .flight-route img {
   width: 100%;
   height: auto;
@@ -1135,3 +1148,144 @@ h6 {
 .flight-summary-content .bill .bill-row p:nth-child(2) {
   width: 80%;
 }
+
+/* responsive */
+
+@media only screen and (min-width: 1025px) {
+  #toggle-button {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .flight-top-item,
+  .stay-item,
+  .flight-bottom-item {
+    transform: unset;
+    margin-bottom: 5%;
+  }
+
+  .flight-top,
+  .stay-content {
+    justify-content: space-around;
+  }
+
+  .wrapper .col-left {
+    width: 100%;
+  }
+
+  .result-wrapper .select {
+    flex-wrap: nowrap;
+  }
+
+  #toggle-button {
+    display: none;
+  }
+  
+}
+
+@media only screen and (max-width: 768px) {
+  .flight-top,
+  .stay-content {
+    justify-content: center;
+  }
+
+
+}
+
+@media only screen and (min-width: 320px) and (max-width: 767px) {
+    .header-nav {
+      display: none;
+    }
+
+    .header .logo {
+      width: 95%;
+    }
+
+    .booking {
+      display: none;
+    }
+
+    .flight-top .flight-top-item {
+      width: 100%;
+    }
+
+    .rating-content {
+      flex-wrap: wrap;
+    }
+
+    .rating-item {
+      width: 100%;
+      padding: 5%;
+    }
+
+    .footer-top {
+      flex-wrap: wrap;
+    }
+
+    .footer-top .logo,
+    .footer-top .footer-col {
+      width: 100%;
+      padding: 5%;
+    }
+
+    .result-wrapper .select {
+      display: unset;
+    }
+
+    .result-wrapper .select .select-item {
+      width: 50%;
+    }
+
+    .result-wrapper .select .select-item>div {
+      padding: 0;
+    }
+
+    .result-wrapper .date-picker>div>div,
+    .result-wrapper .popover button,
+    .result-wrapper .search-btn {
+      width: 50%;
+    }
+
+    .wrapper {
+      flex-wrap: wrap;
+    }
+
+    .wrapper .col-left,
+    .wrapper .col-right {
+      width:  100%;
+      padding: 5% 0;
+    }
+
+    .flight-summary-content {
+      flex-wrap: wrap;
+    }
+
+    .flight-summary-content .content-left,
+    .flight-summary-content .content-right {
+      width:  100%;
+    }
+
+    .popup-content {
+      width: 95%;
+    }
+
+    #toggle-button {
+      display: block;
+    }
+
+}
+
+@media only screen and (max-width: 600px) {
+  .departure-flight .start .logo {
+    display: none;
+  }
+
+  .summary .departure-flight {
+    flex-direction: column;
+  }
+
+  .summary .departure-flight .col {
+    padding: 10% 0;
+  }
+} 

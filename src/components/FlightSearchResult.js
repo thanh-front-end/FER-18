@@ -28,7 +28,7 @@ export function FlightSearchResult(props) {
     const cost = distanceValue;
     const costValue = useSelector((state)=>state.flightSearch.costValue);
     const dispatch = useDispatch();
-
+    const taxes = costValue * 0.004;
     const myCartElement = 
     <div className="cart">
         <div className="departure-flight custom">
@@ -51,12 +51,12 @@ export function FlightSearchResult(props) {
                 <p>${costValue}</p>
             </div>
             <div className="ticket-content">
-                <p>Seat</p>
-                <p>{seatValue}</p>
+                <p>Taxes and Fees</p>
+                <p>{taxes.toFixed(0)}</p>
             </div>
             <div className="ticket-content">
                 <p>Total</p>
-                <p>${costValue*seatValue}</p>
+                <p>${costValue*seatValue * taxes.toFixed(0)}</p>
             </div>
         </div>
         <div className="btn-group">
@@ -67,12 +67,13 @@ export function FlightSearchResult(props) {
     
     return (
         <>
+            
             <div className="wrapper">
                 <div className="col-left">
-                    <div className="result-wrapper">
-                        <ControlSelect />
+                        <div className="result-wrapper">
+                            <ControlSelect />
+                        </div>
                     </div>
-                </div>
             </div>
             
             {distanceValue > 0 ? 
