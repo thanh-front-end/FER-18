@@ -46,7 +46,7 @@ export  function FlightSummary() {
                                 <p>Duration Of Flight</p>
                             </div>
                             <div className="col">
-                                <p>{costValue} Vnd</p>
+                                <p>${costValue}</p>
                                 <p>Cost</p>
                             </div>
                         </div> 
@@ -55,7 +55,7 @@ export  function FlightSummary() {
                         <h3>Price breakdown</h3>
                         <div className="bill-row">
                             <p>Departing Flight</p>
-                            <p>{costValue} Vnd</p>
+                            <p>${costValue}</p>
                         </div>
                         <div className="bill-row">
                             <p>Adults</p>
@@ -67,7 +67,7 @@ export  function FlightSummary() {
                         </div>
                         <div className="bill-row">
                             <p>Total</p>
-                            <p>{costValue*(adults + minors)} Vnd</p>
+                            <p>${costValue*(adults + minors)}</p>
                         </div>
                     </div>
                     <div className="payment">
