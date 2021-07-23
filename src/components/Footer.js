@@ -1,5 +1,6 @@
 import appstore from '../img/appstore.jpg';
 import googleplay from '../img/googleplay.jpg';
+import { Link } from "react-router-dom";
 
 export function Footer() {
     return (
@@ -10,51 +11,50 @@ export function Footer() {
                 </div>
                 <div className="footer-col">
                     <h6>About Tripma</h6>
-                    <a href="">How it works</a>
-                    <a href="">Careers</a>
-                    <a href="">Press</a>
-                    <a href="">Blog</a>
-                    <a href="">Forum</a>
+                    <Link to="">How it works</Link>
+                    <Link to="">Careers</Link>
+                    <Link to="">Press</Link>
+                    <Link to="">Blog</Link>
+                    <Link to="">Forum</Link>
                 </div>
                 <div className="footer-col">
                     <h6>Partner with us</h6>
-                    <a href="">Partnership programs</a>
-                    <a href="">Affiliate program</a>
-                    <a href="">Connectivity partners</a>
-                    <a href="">Promotions and events</a>
-                    <a href="">Integrations</a>
-                    <a href="">Community</a>
-                    <a href="">Loyalty program</a>
+                    <Link to="">Partnership programs</Link>
+                    <Link to="">Affiliate program</Link>
+                    <Link to="">Connectivity partners</Link>
+                    <Link to="">Promotions and events</Link>
+                    <Link to="">Integrations</Link>
+                    <Link to="">Community</Link>
+                    <Link to="">Loyalty program</Link>
                 </div>
                 <div className="footer-col">
                     <h6>Support</h6>
-                    <a href="">Help Center</a>
-                    <a href="">Contact us</a>
-                    <a href="">Privacy policy</a>
-                    <a href="">Terms of service</a>
-                    <a href="">Trust and safety</a>
-                    <a href="">Accessibility</a>
+                    <Link to="">Help Center</Link>
+                    <Link to="">Contact us</Link>
+                    <Link to="">Privacy policy</Link>
+                    <Link to="">Terms of service</Link>
+                    <Link to="">Trust and safety</Link>
+                    <Link to="">Accessibility</Link>
                 </div>
                 <div className="footer-col">
                     <h6>Get the app</h6>
-                    <a href="">Tripma for Android</a>
-                    <a href="">Tripma for iOS</a>
-                    <a href="">Mobile site</a>
+                    <Link to="">Tripma for Android</Link>
+                    <Link to="">Tripma for iOS</Link>
+                    <Link to="">Mobile site</Link>
                    <div><a href="https://www.apple.com/app-store/"><img src={appstore} alt=""/></a></div>
                    <div><a href="https://play.google.com/store"><img src={googleplay} alt=""/></a></div>
                 </div>
             </div>
             <div className="footer-bottom">
                 <div className="icon">
-                    <a href=""><i className="fa fa-twitter" aria-hidden="true"></i></a>
-                    <a href=""><i className="fa fa-instagram" aria-hidden="true"></i></a>
-                    <a href=""><i className="fa fa-facebook-official" aria-hidden="true"></i></a>
+                    <Link to=""><i className="fa fa-twitter" aria-hidden="true"></i></Link>
+                    <Link to=""><i className="fa fa-instagram" aria-hidden="true"></i></Link>
+                    <Link to=""><i className="fa fa-facebook-official" aria-hidden="true"></i></Link>
                 </div>
                 <div className="copy-right">
                     <p>© 2020 Tripma incorporated</p>
                 </div>
             </div>
-            
         </div>
     )
 }
