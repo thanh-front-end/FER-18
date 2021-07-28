@@ -11,14 +11,14 @@ import { useSelector } from 'react-redux';
 import {FlightSearchResult} from './components/FlightSearchResult';
 import {Home} from './components/Home';
 import {FlightSummary} from './components/FlightSummary';
+import { TransitionAlerts } from "./components/TransitionAlerts";
 
 function App() {
   const isOpenPopup = useSelector((state)=>state.open.openValue)
-
   return (
     <Router>
-      <div className="body-container">
-
+      <div className="body">
+        <TransitionAlerts />
         <Header />
 
         <Switch>

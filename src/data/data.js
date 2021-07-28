@@ -10,9 +10,6 @@ import stay6 from '../img/stay6.jpg';
 import flight1 from '../img/flight1.jpg';
 import flight5 from '../img/flight5.jpg';
 import flight6 from '../img/flight6.jpg';
-import japan from '../img/japan.jpg';
-import Delta from '../img/Delta Airlines.jpg';
-import air from '../img/arline.jpg';
 
 export const hotel = [
     {
@@ -116,37 +113,4 @@ export const chartData = [
     { value: 'Việt nam', label: 'VN', city:"Hà Nội", lat: 12, long: 109},
     { value: 'Đài loan', label: 'TW', city:"Taipei", lat: 14, long: 110},
   ];
-
-
-export const flightData = [
-    {
-        img: air,
-        time: "16h 45m",
-        name: "Vietnam Airlines",
-        title_1: "value",
-        title_2: "50m in HKG",
-        title_3: "1 Cost",
-        title_4: "7:00AM - 4:15PM",
-        title_5: "round trip",
-        price: 532,
-    },
-    {
-        img: japan,
-        time: "18h 22m",
-        name: "Japan Airlines",
-        title_2: "1h 50m in PVG",
-        title_3: "1 Cost",
-        title_4: "7:00AM - 4:15PM",
-        title_5: "round trip"
-    },
-    {
-        img: Delta,
-        time: "18h 52m",
-        name: "Delta",
-        title_2: "Duration of Flight",
-        title_3: "1 Cost",
-        title_4: "7:00AM - 4:15PM",
-        title_5: "round trip"
-    },
-];
 

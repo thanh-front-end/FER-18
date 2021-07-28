@@ -8,10 +8,7 @@ import logo from '../img/arline.jpg';
 
 export  function FlightSummary() {
     const arrival = useSelector((state)=>state.flightSearch.arrivalValue);
-    const timeValue = useSelector((state)=>state.flightSearch.timeValue);
-    const distanceValue = useSelector((state)=>state.flightSearch.distanceValue);
     const costValue = useSelector((state)=>state.flightSearch.costValue);
-    const hours = distanceValue === "NaN" ? "" : (distanceValue/560 >=1 ? Math.floor(distanceValue/560) + " h" : Math.floor(distanceValue/560*60) + " min");
     const adults = useSelector((state)=>state.flightSearch.adultsCount);
     const minors = useSelector((state)=>state.flightSearch.minorsCount);
 
@@ -32,22 +29,22 @@ export  function FlightSummary() {
                         <div className="departure-flight">
                             <div className="start">
                                 <div className="logo"><img src={logo} alt=""/></div>
-                                <div className="col">
-                                    <p>{timeValue}</p>
+                                <div className="cols">
+                                    <p>16h 45m</p>
                                     <p>Vietnam Airlines</p>
                                 </div>
                             </div>
-                            <div className="col">
-                                <p>{distanceValue} Km</p>
-                                <p>Distance</p>
+                            <div className="cols">
+                                <p>7:00AM - 4:15PM</p>
+                                <p>Value</p>
                             </div>
-                            <div className="col">
-                                <p>{hours}</p>
-                                <p>Duration Of Flight</p>
+                            <div className="cols">
+                                <p>1 stop</p>
+                                <p>2h 45m in HLN</p>
                             </div>
-                            <div className="col">
-                                <p>${costValue}</p>
-                                <p>Cost</p>
+                            <div className="cols">
+                                <p>$624</p>
+                                <p>Round trip</p>
                             </div>
                         </div> 
                     </div>

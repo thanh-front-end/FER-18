@@ -1,17 +1,39 @@
 import { Link } from "react-router-dom";
 import map from '../img/map1.jpg';
-import { Mychart } from "./Chart";
 import { ControlSelect } from "./ControlSelect";
-import { useDispatch, useSelector } from "react-redux";
-import logo from '../img/arline.jpg';
-import { getCostValue, getTimeValue } from "./store/FlightSearchSlice";
+import { useSelector } from "react-redux";
 import { place } from "../data/data";
 import { SearchFor } from "../data/data";
-import { flightData } from "../data/data";
-import { getDistanceValue } from './store/FlightSearchSlice';
+import { useState } from 'react';
+import datas from "../data/datas";
+import Main from "./Main";
+import Basket from "./Basket";
 
 export function FlightSearchResult(props) {
-
+    const {products} = datas;
+    const [cartItems, setCarItems] = useState([]);
+    const onAdd = (product) =>{
+        const exist = cartItems.find((x) => x.id === product.id);
+        if(exist){
+        setCarItems(cartItems.map((x) => 
+            x.id === product.id ? { ...exist, qty: exist.qty} : x
+            )
+        );
+        } else{
+            setCarItems([ ...cartItems,{ ...product, qty: 1}]);
+        }
+    };
+    const onRemove = (product) =>{
+        const exist = cartItems.find((x) => x.id === product.id);
+        if(exist.qty === 1){
+          setCarItems(cartItems.filter((x) => x.id !== product.id));
+        } else{
+          setCarItems(cartItems.map(x => 
+            x.id === product.id ? {...exist, qty: exist.qty - 1} : x
+            )
+          );
+        }
+      }
     const departure = useSelector((state)=>state.flightSearch.depatureValue);
     const arrival = useSelector((state)=>state.flightSearch.arrivalValue);
     function distance(lat1, lon1, lat2, lon2) {
@@ -24,46 +46,6 @@ export function FlightSearchResult(props) {
     }
     
     const distanceValue = Math.round(distance(departure.lat, departure.long, arrival.lat, arrival.long)).toFixed();
-    const seatValue = useSelector((state)=>state.flightSearch.adultsCount) + useSelector((state)=>state.flightSearch.minorsCount);
-    const cost = distanceValue;
-    const costValue = useSelector((state)=>state.flightSearch.costValue);
-    const dispatch = useDispatch();
-    const taxes = costValue * 0.004;
-    const myCartElement = 
-    <div className="cart">
-        <div className="departure-flight custom">
-            <div className="start">
-                <div className="logo"><img src={logo} alt=""/></div>
-                <div className="content">
-                    <p>Vietnam Airlines</p>
-                    <p>FIG4312</p>
-                </div>
-            </div>
-            <div className="cols">
-                <p>16h 45m (+{seatValue})</p>
-                <p>7:00 AM - 4:15 PM</p>
-                <p>2h 45m in HNL</p>
-            </div>
-        </div>
-        <div className="ticket">
-            <div className="ticket-content">
-                <p>Subtotal</p>
-                <p>${costValue}</p>
-            </div>
-            <div className="ticket-content">
-                <p>Taxes and Fees</p>
-                <p>{taxes.toFixed(0)}</p>
-            </div>
-            <div className="ticket-content">
-                <p>Total</p>
-                <p>${costValue*seatValue * taxes.toFixed(0)}</p>
-            </div>
-        </div>
-        <div className="btn-group">
-            <button className="save"><Link to="/flight-summary">Save and Close</Link></button>
-        </div>
-    </div>
-
     
     return (
         <>
@@ -89,41 +71,19 @@ export function FlightSearchResult(props) {
                             </div>
                         }
                         <div className="departure-flight-wrapper">
-
-                            {flightData.map((item, index)=>
-                                <div className="departure-flight" key={index} 
-                                    onClick={()=>{
-                                            dispatch(getTimeValue(item.time))
-                                            dispatch(getCostValue(cost))
-                                            dispatch(getDistanceValue(distanceValue))
-                                        }}>
-                                    <div className="start">
-                                        <div className="logo"><img src={item.img} alt=""/></div>
-                                        <div className="cols">
-                                            <p id="time">{item.time}</p>
-                                            <p>{item.name}</p>
-                                        </div>
-                                    </div>
-                                    <div className="cols">
-                                        <p>{item.title_4}</p>
-                                        <p>{item.title_1}</p>
-                                    </div>
-                                    <div className="cols">
-                                        <p>{item.title_3}</p>
-                                        <p>{item.title_2}</p>
-                                    </div>
-                                    <div className="cols">
-                                        <p>{distanceValue === "NaN" ? "" : "$" + cost}</p>
-                                        <p>{item.title_5}</p>
-                                    </div>
-                                </div>
-                            )}
+                            <Main products={products} onAdd={onAdd}/>
 
                         </div>
                     </div>
                 </div>
                 <div className="col-right">
-                    {costValue > 0 ? myCartElement : <Mychart />}
+                    <Basket cartItems={cartItems} onAdd={onAdd} onRemove = {onRemove} />
+                    <div className="cart">
+                        <div className="btn-group">
+                            <button className="save"><Link to="/flight-summary">Save and Close</Link></button>
+                        </div>
+                    </div>
+                    
                 </div>
             </div>
             : <p className="warn"><i className="fa fa-exclamation-triangle" aria-hidden="true"></i> Unsuitable flight</p>
