@@ -8,7 +8,7 @@ import logo from '../img/arline.jpg';
 
 export  function FlightSummary() {
     const arrival = useSelector((state)=>state.flightSearch.arrivalValue);
-    const costValue = useSelector((state)=>state.flightSearch.costValue);
+    const costValue = "250.51";
     const adults = useSelector((state)=>state.flightSearch.adultsCount);
     const minors = useSelector((state)=>state.flightSearch.minorsCount);
 
